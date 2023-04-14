@@ -5,7 +5,7 @@ pipeline {
     stage('Terraform Init') {
       steps {
         dir('terraform') {
-          sh 'terraform init'
+          bat 'terraform init'
         }
       }
     }
@@ -13,7 +13,7 @@ pipeline {
     stage('Terraform Plan') {
       steps {
         dir('terraform') {
-          sh 'terraform plan -out=tfplan'
+          bat 'terraform plan -out=tfplan'
         }
       }
     }
@@ -26,7 +26,7 @@ pipeline {
       }
       steps {
         dir('terraform') {
-          sh 'terraform apply -auto-approve tfplan'
+          bat 'terraform apply -auto-approve tfplan'
         }
       }
     }
